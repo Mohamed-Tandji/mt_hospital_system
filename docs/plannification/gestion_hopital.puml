@@ -1,0 +1,94 @@
+@startuml
+!define RECTANGLE class
+skinparam class {
+    BackgroundColor PaleGreen
+    ArrowColor SeaGreen
+    BorderColor Black
+}
+
+RECTANGLE Hopital {
+  -String nom
+  -String adresse
+  +gererPatients()
+  +gererMedecins()
+  +gererInfirmiers()
+  +gererPersonnel()
+  +gererLits()
+  +gererDepartements()
+  +planifierRendezVous()
+  +diagnostiquerPatients()
+  +suivreDossiersPatients()
+}
+
+RECTANGLE Patient {
+  -String idPatient
+  -String nom
+  -String dossierMedical
+  +obtenirDossierMedical()
+  +mettreAJourDossierMedical()
+}
+
+RECTANGLE Medecin {
+  -String idMedecin
+  -String nom
+  -String specialisation
+  +diagnostiquerPatient()
+  +planifierRendezVous()
+}
+
+RECTANGLE Infirmier {
+  -String idInfirmier
+  -String nom
+  -String departement
+  +fournirSoins()
+  +planifierRendezVous()
+}
+
+RECTANGLE Personnel {
+  -String idPersonnel
+  -String nom
+  -String role
+  +effectuerTaches()
+}
+
+RECTANGLE Lit {
+  -String idLit
+  -String statut
+  +assignerPatient()
+}
+
+RECTANGLE Departement {
+  -String idDepartement
+  -String nom
+  +gererRessources()
+}
+
+RECTANGLE RendezVous {
+  -String idRendezVous
+  -String date
+  -String heure
+  +planifier()
+  +annuler()
+}
+
+RECTANGLE DossierMedical {
+  -String idDossier
+  -String details
+  +ajouterEntree()
+  +consulterDossier()
+}
+
+Hopital "1" -- "*" Patient : gère
+Hopital "1" -- "*" Medecin : emploie
+Hopital "1" -- "*" Infirmier : emploie
+Hopital "1" -- "*" Personnel : emploie
+Hopital "1" -- "*" Lit : contient
+Hopital "1" -- "*" Departement : contient
+Hopital "1" -- "*" RendezVous : planifie
+Patient "1" -- "*" DossierMedical : possède
+Medecin "1" -- "*" DossierMedical : met à jour
+Infirmier "1" -- "*" DossierMedical : met à jour
+Departement "1" -- "*" Medecin : inclut
+Departement "1" -- "*" Infirmier : inclut
+
+@enduml
