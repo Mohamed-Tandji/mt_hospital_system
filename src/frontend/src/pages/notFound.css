@@ -1,0 +1,48 @@
+/* src/ServiceUnavailable.css */
+
+.service-unavailable-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #cbf7d4;
+  }
+  
+  .message-container {
+    text-align: center;
+    background-color: hsl(120, 7%, 97%);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+  }
+  
+  .title {
+    color: #d9534f; /* Couleur rouge */
+    font-size: 2.5em;
+    margin-bottom: 10px;
+  }
+  
+  .message {
+    color: #333333;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+  }
+  
+  .contact-button {
+    background-color: #4dd869; /* Bleu */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .contact-button:hover {
+    background-color: #0d7724;
+  }
+  
